@@ -1,13 +1,11 @@
-import './App.css'
+import Dashboard from "./pages/Dashboard"
 
 
-function App() {
-
+const App = () => {
   return (
-    <>
-      <div className='p-10'>
-      </div>
-    </>
+    <div>
+      <Dashboard/>
+    </div>
   )
 }
 
