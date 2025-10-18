@@ -1,9 +1,19 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
 
 
 :root{
   --color-300: #e0e7fe;
   --color-500: #3e38a7;
   --color-600: #5046e4;
+}
+
+@import "tailwindcss";
+
+body{
+  font-family: "Inter";
 }

@@ -6,7 +6,7 @@ import SideBarItem from "./SideBarItem"
 
 const SideBar = () => {
   return (
-    <div className="h-screen bg-white border-r border-gray-300 shadow-xl w-72 fixed left-0 top-0">
+    <div className="h-screen bg-white border-r border-gray-300 shadow-xl w-68 fixed left-0 top-0">
       <div className="pt-8 mb-16 flex items-center justify-center gap-4 ">
         <img className="h-8 w-8" src="/public/logo.svg" alt="" />
         <div className="text-2xl">

@@ -1,13 +1,16 @@
+import type { Ref } from "react";
+
 interface InputProps {
-    onChange: () => void,
-    placeholder: string
+    ref:Ref<HTMLInputElement>;
+    placeholder: string;
+    width?: boolean
 }
 
-const Input = ({onChange, placeholder}: InputProps) => {
+const Input = ({ref, placeholder,width}: InputProps) => {
   return (
     <div>
-        <input type="text" className="px-4 py-2 bg-gray-200
-         outline-none border border-gray-400 rounded-md w-96" placeholder={placeholder} onChange={onChange}/>
+        <input type="text" className={`px-4 py-2 bg-gray-200
+         outline-none border border-gray-400 rounded-md ${width ? "w-full" : "w-96"}`} placeholder={placeholder} ref={ref}/>
     </div>
   )
 }

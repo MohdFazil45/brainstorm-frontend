@@ -7,7 +7,9 @@ interface ButtonsProps {
     text: string; 
     startIcon?: ReactElement; 
     endIcon?: ReactElement; 
-    onClick?: () => void 
+    onClick?: () => void ;
+    fullWidth?: boolean;
+    loading?: boolean;
 } 
 
 const variantsStyles = {
@@ -21,9 +23,9 @@ const variantsSize = {
     lg: "px-6 py-3 text-lg"
 } 
 
-const Button = ({variant, size , startIcon, text, endIcon, onClick}: ButtonsProps) => { 
+const Button = ({variant, size , startIcon, text, endIcon,fullWidth,loading, onClick}: ButtonsProps) => { 
     return ( 
-    <button onClick={onClick} className={` ${variantsStyles[variant]} ${variantsSize[size]} rounded-md flex gap-2 items-center justify-center hover:scale-105 cursor-pointer`}>
+    <button onClick={onClick} className={` ${variantsStyles[variant]} ${variantsSize[size]} ${fullWidth ? " w-full flex items-center justify-center" : "" } ${loading ? "opacity-35 cursor-not-allowed" : "hover:scale-105 hover:shadow-lg cursor-pointer" } rounded-md flex gap-2 items-center justify-center transition-transform duration-200 `}>
       {startIcon}
       {text}
       {endIcon}

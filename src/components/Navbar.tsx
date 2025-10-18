@@ -2,10 +2,22 @@
 import CreateContentMOdal from '../components/CreateContentModal'
 import Button from '../components/Button'
 import AddIcon from '../icons/AddIcon'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useContent } from '../hooks/useContent'
+import { useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
     const[modalOpen, setModalOpen] = useState(false)
+    const navigate = useNavigate()
+    const {refresh} = useContent()
+    useEffect(() => {
+      refresh()
+    }, [modalOpen])
+
+    const logout = ()=>{
+      navigate("/")
+    }
+
   return (
     <div>
         <CreateContentMOdal open={modalOpen} onClose={() => {
@@ -13,7 +25,7 @@ const Navbar = () => {
         }}/>
         <div className="flex justify-end gap-4 mb-6">
           <Button variant='secondary' text='Add Content' startIcon={<AddIcon size="md"/>} size='md' onClick={()=>{setModalOpen(true)}}/>
-          <Button variant='primary' text='Share Brain' startIcon={<AddIcon size="md"/>} size='md' onClick={()=>{}}/>
+          <Button variant='primary' text='Logout' startIcon={<AddIcon size="md"/>} size='md' onClick={logout}/>
         </div>
     </div>
   )
