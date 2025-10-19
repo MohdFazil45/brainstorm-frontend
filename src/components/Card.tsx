@@ -10,12 +10,13 @@ import { BACKEND_URL } from "../config";
   interface CardProps {
     title: string;
     link: string;
-    contentId: string; // Add contentId prop
-    onDeleteSuccess: () => void; // Callback to refresh content after deletion
+    contentId?: string; // Add contentId prop
+    onDeleteSuccess?: () => void; // Callback to refresh content after deletion
+    isPublicView?: boolean; // New prop to control UI
     type: "twitter" | "youtube" | "text" | "link";
   }
 
-  const Card = ({ title, link, type, contentId, onDeleteSuccess}: CardProps) => {
+  const Card = ({ title, link, type, contentId, onDeleteSuccess, isPublicView}: CardProps) => {
 
     const shareLink = async()=>{
       const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`,{
@@ -26,7 +27,9 @@ import { BACKEND_URL } from "../config";
         }
       })
       const shareURL = `http://localhost:5173/share/${response.data.hash}`
-      alert(shareURL)
+      
+      await  navigator.clipboard.writeText(shareURL)
+      alert("Copy link to clipboard")
     }
 
     function getEmbedLink(url: string) {
@@ -40,11 +43,10 @@ import { BACKEND_URL } from "../config";
                 headers: {
                     "Authorization": localStorage.getItem("token")
                 },
-                data: { // Send contentId in the request body for DELETE
+                data: { 
                     contentId: contentId
                 }
             });
-            onDeleteSuccess(); // Call the callback to refresh the list
             alert("Content deleted successfully!");
         } catch (error) {
             console.error("Error deleting content:", error);
