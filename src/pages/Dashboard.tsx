@@ -5,7 +5,7 @@ import SideBar from "../components/SideBar";
 import { useContent } from "../hooks/useContent";
 
 function Dashboard() {
-  const { contents, refresh } = useContent();
+  const { contents} = useContent();
   const [filteredContent, setFilteredContent] = useState([]);
   const handleFilterSelect = (filterType : string | null) => {
     if (!filterType) {
@@ -36,7 +36,6 @@ function Dashboard() {
               type={type}
               link={link}
               contentId={Id}
-              onDeleteSuccess={refresh}
             />
           ))}
         </div>
