@@ -16,7 +16,7 @@ import { BACKEND_URL } from "../config";
     type: "twitter" | "youtube" | "text" | "link";
   }
 
-  const Card = ({ title, link, type, contentId, onDeleteSuccess, isPublicView}: CardProps) => {
+  const Card = ({ title, link, type, contentId, onDeleteSuccess: _onDeleteSuccess, isPublicView: _isPublicView}: CardProps) => {
 
     const shareLink = async()=>{
       const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`,{
