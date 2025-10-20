@@ -26,7 +26,7 @@ import { BACKEND_URL } from "../config";
           "Authorization": localStorage.getItem("token")
         }
       })
-      const shareURL = `http://localhost:5173/share/${response.data.hash}`
+      const shareURL = `https://brainstorm-backend-zjxd.onrender.com/share/${response.data.hash}`
       
       await  navigator.clipboard.writeText(shareURL)
       alert("Copy link to clipboard")
