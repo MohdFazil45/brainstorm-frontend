@@ -26,7 +26,7 @@ import { BACKEND_URL } from "../config";
           "Authorization": localStorage.getItem("token")
         }
       })
-      const shareURL = `https://brainstorm-backend-zjxd.onrender.com/api/v1/brain/${response.data.hash}`
+      const shareURL = `https://fazil-brainstorm.netlify.app/share/${response.data.hash}`
       
       await  navigator.clipboard.writeText(shareURL)
       alert("Copy link to clipboard")

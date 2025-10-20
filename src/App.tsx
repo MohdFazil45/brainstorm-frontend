@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/signup" element={<Signup/>}/>
         <Route path="/signin" element={<Signin/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/api/v1/brain/:hash" element={<SharedPage/>}/>
+        <Route path="/share/:hash" element={<SharedPage/>}/>
       </Routes>
     </BrowserRouter>
   )
