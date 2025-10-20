@@ -6,7 +6,6 @@ import TextIcon from "../icons/TextIcon";
 import TwitterIcon from "../icons/TwitterIcon";
 import YoutubeIcon from "../icons/YoutubeIcon";
 import { BACKEND_URL } from "../config";
-import { useNavigate } from "react-router-dom";
 
   interface CardProps {
     title: string;
@@ -18,7 +17,6 @@ import { useNavigate } from "react-router-dom";
   }
 
   const Card = ({ title, link, type, contentId}: CardProps) => {
-    const navigate = useNavigate()
 
     const shareLink = async()=>{
       const response = await axios.post(`${BACKEND_URL}/api/v1/brain/share`,{
@@ -50,7 +48,6 @@ import { useNavigate } from "react-router-dom";
                 }
             });
             alert("Content deleted successfully!");
-            navigate("/dashboard")
         } catch (error) {
             console.error("Error deleting content:", error);
             alert("Failed to delete content.");
