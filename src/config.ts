@@ -1,1 +1,1 @@
-export const BACKEND_URL = "https://brainstorm-backend-b975.onrender.com"
+export const BACKEND_URL = "https://brainstorm-backend-zjxd.onrender.com"
